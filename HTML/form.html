@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return validatePasswords()">
+        <table border="1" cellpadding="6" cellspacing="0" align="center" bgcolor="lightcyan">
+            <tr>
+                <td>
+                    Full Name:
+                </td>
+                <td>
+                    <input type="text" name="fullname" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input type="email" name="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" onclick="togglePassword('password', 'eye1')">
+                        <span id="eye1">👌🏻</span>
+                    </button> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Confirm Password:
+                </td>
+                <td>
+                    <input type="password" id="confirm" name="confirm" required>
+                    <button type="button" onclick="togglePassword('password', 'eye1')">
+                        <span id="eye1">👌🏻</span>
+                    </button> 
+                </td>
+            </tr>
+            <script>
+                function togglePassword(id) {
+                    const input = document.getElementById(id);
+                    if (input.type === "password") {
+                        input.type = "text";
+                    } else {
+                        input.type = "password";
+                    }
+                }
+
+                function validatePasswords() {
+                    const pass = document.getElementById("password").value;
+                    const confirm = document.getElementById("confirm").value;
+
+                    if (pass !== confirm) {
+                        alert("Passwords do not match!");
+                        return false; // stops form submission
+                    }
+                    return true; // allow form submit
+                }
+            </script>
+            <tr>
+                <td>
+                    course:
+                </td>
+                <td>
+                    <select name="course">
+                        <option>BCA</option>
+                        <option>B.Tech</option>
+                        <option>MCA</option>
+                        <option>M.Tech</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address:
+                </td>
+                <td>
+                    <textarea name="address" rows="4" cols="30"></textarea>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    Gender:
+                </td>
+                <td>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hobbies:
+                </td>
+                <td>
+                    <input type="checkbox" name="hobbies" value="sketching">Sketching
+                    <input type="checkbox" name="hobbies" value="music">Music
+                </td>
+            </tr>
+            
+        </table>
+        <button style="text-align: right; margin-left: 45%; margin-top: 20px; background-color: rgb(40, 228, 40);">
+        SUBMIT
+        </button>
+    </form>
+</body>
+</html>
